@@ -1,0 +1,6 @@
+il faut changer les chemins dans le fichier /etc/hosts
+
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+46.19.122.85	intra.42.fr

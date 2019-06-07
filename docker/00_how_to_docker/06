@@ -1,0 +1,2 @@
+docker pull nginx
+docker run --name overlord -d -p 192.168.99.100:5000:80 --restart always nginx

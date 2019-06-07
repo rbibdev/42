@@ -1,0 +1,7 @@
+3
+##start
+##end
+startend 0 0
+else 1 1
+toto 2 2
+startend-else

@@ -1,0 +1,5 @@
+dig +noall +answer -x 10.51.1.81 >> 
+
+81.1.51.10.in-addr.arpa. 3600	IN	PTR	ldap-proxy.42.fr.
+
+son nom est donc : ldap-proxy.42.fr

@@ -1,0 +1,33 @@
+# **************************************************************************** #
+#                                                                              #
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    04.sh                                              :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: arbib <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/02/22 04:40:48 by arbib             #+#    #+#              #
+#    Updated: 2018/02/22 04:41:23 by arbib            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+#!/bin/bash
+
+file=md5cron
+CMDC=$(diff md5cron <(md5sum /etc/crontab))
+
+if [ ! -e "$file" ] ; then
+	touch "$file"
+	md5sum /etc/crontab > "$file"
+	exit
+fi
+
+if [ "$CMDC" != "" ] ; then
+	echo diff
+	md5sum /etc/crontab > "$file"
+	echo "Mail envoye $(date)" | mail -s "Fichier crontab modifie! $HOST" rbib.abdessamad@gmail.com
+else
+	echo same
+fi
+
+echo "0 0 * * * /root/Desktop/init/scripting/04" >> /var/spool/cron/crontabs/root
